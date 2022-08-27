@@ -13,7 +13,7 @@ class UsersScreen extends StatelessWidget {
     TextEditingController nameController = TextEditingController();
     TextEditingController ageController = TextEditingController();
     TextEditingController countController = TextEditingController();
-    context.read<UsersModel>().getUserDataInit();
+    context.read<UserViewModel>().getUserDataInit();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.black,
@@ -129,7 +129,9 @@ class UsersScreen extends StatelessWidget {
                                       ageController.text.isNotEmpty &&
                                       countController.text.isNotEmpty) {
                                     Navigator.of(context).pop();
-                                    context.read<UsersModel>().insertCachedUser(
+                                    context
+                                        .read<UserViewModel>()
+                                        .insertCachedUser(
                                           CachedUser(
                                             age: int.parse(ageController.text),
                                             userName: nameController.text,
@@ -173,12 +175,12 @@ class UsersScreen extends StatelessWidget {
               icon: const Icon(Icons.person_add)),
           IconButton(
               onPressed: () {
-                context.read<UsersModel>().deleteAllCachedUsers();
+                context.read<UserViewModel>().deleteAllCachedUsers();
               },
               icon: const Icon(Icons.delete)),
         ],
       ),
-      body: Consumer<UsersModel>(
+      body: Consumer<UserViewModel>(
           builder: (BuildContext context, userModel, Widget? child) {
         if (userModel.userData == null) {
           return Padding(

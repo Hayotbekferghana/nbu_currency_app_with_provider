@@ -15,7 +15,7 @@ void main() {
           create: (BuildContext context) =>
               NbuModel(nbuRepository: NbuRepository(apiService: ApiService()))),
       ChangeNotifierProvider(
-        create: (BuildContext ctx) => UsersModel(
+        create: (BuildContext ctx) => UserViewModel(
           userRepository: UserRepository(
             apiService: ApiService(),
           ),

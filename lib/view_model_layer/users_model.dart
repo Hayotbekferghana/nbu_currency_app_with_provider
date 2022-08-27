@@ -3,8 +3,8 @@ import 'package:nbu_currency_api_project/data_layer/models/user_data.dart';
 import 'package:nbu_currency_api_project/data_layer/repositories/user_repository.dart';
 import '../data_layer/db/cached_user_model/cached_user_model.dart';
 
-class UsersModel extends ChangeNotifier {
-  UsersModel({required this.userRepository});
+class UserViewModel extends ChangeNotifier {
+  UserViewModel({required this.userRepository});
 
   final UserRepository userRepository;
   UserData? userData;
