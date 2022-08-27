@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:nbu_currency_api_project/presentation/users_screen/users_screen.dart';
+import 'package:nbu_currency_api_project/utils/constants.dart';
 import 'package:nbu_currency_api_project/view_model_layer/nbu_model.dart';
 import 'package:provider/provider.dart';
 
@@ -93,12 +93,7 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (ctx) => const UsersScreen(),
-            ),
-          );
+          Navigator.pushNamed(context, usersScreen);
         },
         child: const Icon(Icons.group),
       ),
