@@ -25,7 +25,6 @@ class UsersModel extends ChangeNotifier {
     if (!(cachedUsers.map((e) => e.userName).toList().contains(userData!.name))) {
       await userRepository.insertCachedUserFromApi(userData!);
     }
-    // await userRepository.insertCachedUserFromApi(userData!);
     cachedUsers = await userRepository.getAllCachedUsers();
     notifyListeners();
   }
@@ -46,8 +45,6 @@ class UsersModel extends ChangeNotifier {
     notifyListeners();
     await Future.delayed(const Duration(milliseconds: 500));
     await userRepository.deleteAllCachedUsers();
-    userData = await userRepository.getUserData();
-    await userRepository.insertCachedUserFromApi(userData!);
     cachedUsers = await userRepository.getAllCachedUsers();
     isLoading = false;
     notifyListeners();

@@ -3,7 +3,6 @@ import 'package:lottie/lottie.dart';
 import 'package:nbu_currency_api_project/data_layer/db/cached_user_model/cached_user_model.dart';
 import 'package:nbu_currency_api_project/view_model_layer/users_model.dart';
 import 'package:provider/provider.dart';
-
 import '../../utils/icons.dart';
 
 class UsersScreen extends StatelessWidget {
