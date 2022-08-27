@@ -45,7 +45,7 @@ class UsersModel extends ChangeNotifier {
     notifyListeners();
     await Future.delayed(const Duration(milliseconds: 500));
     await userRepository.deleteAllCachedUsers();
-    cachedUsers = await userRepository.getAllCachedUsers();
+    cachedUsers = [];
     isLoading = false;
     notifyListeners();
   }
