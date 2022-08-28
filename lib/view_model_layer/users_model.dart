@@ -22,8 +22,14 @@ class UserViewModel extends ChangeNotifier {
 
   void getUserDataInit() async {
     userData = await userRepository.getUserData();
-    if (!(cachedUsers.map((e) => e.userName).toList().contains(userData!.name))) {
-      await userRepository.insertCachedUserFromApi(userData!);
+    if (!(cachedUsers
+        .map((e) => e.userName)
+        .toList()
+        .contains(userData!.name))) {
+      await userRepository.insertCachedUser(CachedUser(
+          age: userData!.age,
+          userName: userData!.name,
+          count: userData!.count));
     }
     cachedUsers = await userRepository.getAllCachedUsers();
     notifyListeners();
@@ -34,7 +40,15 @@ class UserViewModel extends ChangeNotifier {
     notifyListeners();
     await Future.delayed(const Duration(milliseconds: 500));
     userData = await userRepository.getUserData();
-    await userRepository.insertCachedUserFromApi(userData!);
+    if (!(cachedUsers
+        .map((e) => e.userName)
+        .toList()
+        .contains(userData!.name))) {
+      await userRepository.insertCachedUser(CachedUser(
+          age: userData!.age,
+          userName: userData!.name,
+          count: userData!.count));
+    }
     cachedUsers = await userRepository.getAllCachedUsers();
     isLoading = false;
     notifyListeners();
@@ -43,7 +57,6 @@ class UserViewModel extends ChangeNotifier {
   void deleteAllCachedUsers() async {
     isLoading = true;
     notifyListeners();
-    await Future.delayed(const Duration(milliseconds: 500));
     await userRepository.deleteAllCachedUsers();
     cachedUsers = [];
     isLoading = false;
@@ -53,8 +66,6 @@ class UserViewModel extends ChangeNotifier {
   void insertCachedUser(CachedUser cachedUser) async {
     isLoading = true;
     notifyListeners();
-    userData = await userRepository.getUserData();
-    await Future.delayed(const Duration(milliseconds: 500));
     await userRepository.insertCachedUser(cachedUser);
     cachedUsers = await userRepository.getAllCachedUsers();
     isLoading = false;

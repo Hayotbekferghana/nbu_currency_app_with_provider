@@ -11,9 +11,6 @@ class UserRepository {
 
    Future<CachedUser> insertCachedUser(CachedUser cachedUser) => LocalDatabase.insertCachedUser(cachedUser);
 
-   Future<CachedUser> insertCachedUserFromApi(UserData userData) =>LocalDatabase.insertCachedUserFromApi(userData);
-
-
    Future<List<CachedUser>> getAllCachedUsers() =>LocalDatabase.getAllCachedUsers();
 
    Future<int> deleteCachedUserById(int id) =>LocalDatabase.deleteCachedUserById(id);

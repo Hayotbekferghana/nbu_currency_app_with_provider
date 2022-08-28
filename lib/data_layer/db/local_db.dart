@@ -1,4 +1,3 @@
-import 'package:nbu_currency_api_project/data_layer/models/user_data.dart';
 import 'package:sqflite/sqflite.dart';
 import 'cached_user_model/cached_user_model.dart';
 import 'package:path/path.dart';
@@ -47,14 +46,6 @@ class LocalDatabase {
 
   static Future<CachedUser> insertCachedUser(CachedUser cachedUser) async {
     final db = await getInstance.database;
-    final id = await db.insert(userTable, cachedUser.toJson());
-    return cachedUser.copyWith(id: id);
-  }
-
-  static Future<CachedUser> insertCachedUserFromApi(UserData userData) async {
-    final db = await getInstance.database;
-    CachedUser cachedUser = CachedUser(
-        age: userData.age, userName: userData.name, count: userData.count);
     final id = await db.insert(userTable, cachedUser.toJson());
     return cachedUser.copyWith(id: id);
   }

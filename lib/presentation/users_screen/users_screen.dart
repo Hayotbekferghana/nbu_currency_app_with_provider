@@ -7,13 +7,13 @@ import '../../utils/icons.dart';
 
 class UsersScreen extends StatelessWidget {
   const UsersScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     TextEditingController nameController = TextEditingController();
     TextEditingController ageController = TextEditingController();
     TextEditingController countController = TextEditingController();
-    context.read<UserViewModel>().getUserDataInit();
+    // context.read<UserViewModel>().getUserDataInit();
+    Provider.of<UserViewModel>(context,listen: false).getUserDataInit();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.black,
