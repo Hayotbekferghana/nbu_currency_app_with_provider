@@ -14,7 +14,7 @@ class LocalDatabase {
     if (_database != null) {
       return _database!;
     } else {
-      _database = await _initDB("todos.db");
+      _database = await _initDB("users.db");
       return _database!;
     }
   }
