@@ -12,8 +12,7 @@ class UsersScreen extends StatelessWidget {
     TextEditingController nameController = TextEditingController();
     TextEditingController ageController = TextEditingController();
     TextEditingController countController = TextEditingController();
-    // context.read<UserViewModel>().getUserDataInit();
-    Provider.of<UserViewModel>(context,listen: false).getUserDataInit();
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.black,

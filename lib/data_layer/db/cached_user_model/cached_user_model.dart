@@ -50,8 +50,7 @@ class CachedUser {
       };
 
   @override
-  String toString() =>
-      '''              
+  String toString() => '''              
          id: $id, 
          user_name $userName, 
          age $age,
